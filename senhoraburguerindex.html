@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senhora Burguer | Hamburgueria Artesanal - Freguesia do Ó</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-sans antialiased pb-24">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-zinc-900/95 backdrop-blur-md border-b border-zinc-800">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
+            <span class="text-2xl font-black tracking-wider text-amber-500">SENHORA <span class="text-white">BURGUER</span></span>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium text-zinc-400">
+                <a href="#cardapio" class="hover:text-amber-500 transition">Cardápio</a>
+                <a href="#avaliacoes" class="hover:text-amber-500 transition">Avaliações</a>
+                <a href="#localizacao" class="hover:text-amber-500 transition">Localização</a>
+            </nav>
+            <button onclick="toggleCart()" class="relative bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold px-4 py-2 rounded-xl text-sm flex items-center space-x-2 transition shadow-lg">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Carrinho</span>
+                <span id="cart-badge" class="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold hidden">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-zinc-900 py-16 px-4 text-center border-b border-zinc-800">
+        <div class="max-w-3xl mx-auto">
+            <span class="bg-amber-500/10 text-amber-500 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest border border-amber-500/20">Freguesia do Ó, São Paulo</span>
+            <h1 class="text-4xl md:text-5xl font-black mt-4 tracking-tight">O Verdadeiro Sabor que <span class="text-amber-500">Apaixona</span></h1>
+            <p class="text-zinc-400 mt-2 text-sm md:text-base">Hambúrgueres artesanais suculentos, ingredientes frescos e porções de dar água na boca.</p>
+        </div>
+    </section>
+
+    <!-- Cardápio -->
+    <main class="max-w-5xl mx-auto px-4 py-10" id="cardapio">
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold tracking-tight text-amber-500 flex items-center gap-2"><i class="fa-solid fa-burger"></i> Nossos Lanches & Combos</h2>
+            <p class="text-zinc-400 text-xs">Clique em "Adicionar ao Carrinho" para montar seu pedido.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- Item 1 -->
+            <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-amber-500/50 transition">
+                <div class="flex gap-4">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=300&q=80" alt="X-Salada Artesanal" class="w-24 h-24 object-cover rounded-xl">
+                    <div class="flex-1">
+                        <h4 class="font-bold text-base">X-Salada Artesanal</h4>
+                        <p class="text-zinc-400 text-xs mt-1">Blend bovino de 160g, queijo prato derretido, alface americana crocante, tomate fresco e maionese da casa no pão brioche.</p>
+                        <span class="text-amber-500 font-bold text-sm block mt-2">R$ 32,90</span>
+                    </div>
+                </div>
+                <button onclick="addToCart('X-Salada Artesanal', 32.90)" class="mt-4 w-full bg-zinc-800 hover:bg-amber-500 hover:text-zinc-950 text-amber-500 font-bold py-2 rounded-xl text-xs transition border border-amber-500/30">
+                    Adicionar ao Carrinho
+                </button>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-amber-500/50 transition">
+                <div class="flex gap-4">
+                    <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=300&q=80" alt="Senhora Bacon" class="w-24 h-24 object-cover rounded-xl">
+                    <div class="flex-1">
+                        <h4 class="font-bold text-base">Senhora Bacon</h4>
+                        <p class="text-zinc-400 text-xs mt-1">Blend bovino de 160g, cheddar cremoso derretido, muito bacon crocante em tiras e molho especial no pão brioche.</p>
+                        <span class="text-amber-500 font-bold text-sm block mt-2">R$ 38,90</span>
+                    </div>
+                </div>
+                <button onclick="addToCart('Senhora Bacon', 38.90)" class="mt-4 w-full bg-zinc-800 hover:bg-amber-500 hover:text-zinc-950 text-amber-500 font-bold py-2 rounded-xl text-xs transition border border-amber-500/30">
+                    Adicionar ao Carrinho
+                </button>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-amber-500/50 transition">
+                <div class="flex gap-4">
+                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=300&q=80" alt="Senhora Smash Duplo" class="w-24 h-24 object-cover rounded-xl">
+                    <div class="flex-1">
+                        <h4 class="font-bold text-base">Senhora Smash Duplo</h4>
+                        <p class="text-zinc-400 text-xs mt-1">Dois smash burgers de 80g prensados na chapa com crosta perfeita, duplo queijo cheddar, picles artesanal e molho rústico.</p>
+                        <span class="text-amber-500 font-bold text-sm block mt-2">R$ 34,90</span>
+                    </div>
+                </div>
+                <button onclick="addToCart('Senhora Smash Duplo', 34.90)" class="mt-4 w-full bg-zinc-800 hover:bg-amber-500 hover:text-zinc-950 text-amber-500 font-bold py-2 rounded-xl text-xs transition border border-amber-500/30">
+                    Adicionar ao Carrinho
+                </button>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 flex flex-col justify-between hover:border-amber-500/50 transition">
+                <div class="flex gap-4">
+                    <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=300&q=80" alt="Senhora Tudo" class="w-24 h-24 object-cover rounded-xl">
+                    <div class="flex-1">
+                        <h4 class="font-bold text-base">Senhora Tudo</h4>
+                        <p class="text-zinc-400 text-xs mt-1">Blend bovino 160g, queijo prato, bacon crocante, ovo, presunto, alface, tomate e maionese especial da casa.</p>
+                        <span class="text-amber-500 font-bold text-sm block mt-2">R$ 42,00</span>
+                    </div>
+                </div>
+                <button onclick="addToCart('Senhora Tudo', 42.00)" class="mt-4 w-full bg-zinc-800 hover:bg-amber-500 hover:text-zinc-950 text-amber-500 font-bold py-2 rounded-xl text-xs transition border border-amber-500/30">
+                    Adicionar ao Carrinho
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Seção de Avaliações (Google Reviews) -->
+    <section class="max-w-5xl mx-auto px-4 py-10 border-t border-zinc-900" id="avaliacoes">
+        <div class="mb-8 text-center">
+            <h3 class="text-2xl font-bold text-amber-500">O que os clientes dizem</h3>
+            <p class="text-zinc-400 text-xs mt-1">Avaliação 4.8 de 5 estrelas no Google Maps</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-zinc-900 p-4 rounded-xl border border-zinc-800">
+                <div class="text-amber-500 text-sm mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="text-zinc-300 text-xs italic">"Melhor hamburgueria da Freguesia do Ó! O atendimento é nota 10 e o lanche chega super quente e suculento."</p>
+                <span class="text-zinc-500 text-[10px] mt-2 block">— Carlos Eduardo (Google Local)</span>
+            </div>
+            <div class="bg-zinc-900 p-4 rounded-xl border border-zinc-800">
+                <div class="text-amber-500 text-sm mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="text-zinc-300 text-xs italic">"Blend de carne excelente e o pão é super macio. Sem contar o bacon que é incrivelmente crocante."</p>
+                <span class="text-zinc-500 text-[10px] mt-2 block">— Juliana Silva (Google Local)</span>
+            </div>
+            <div class="bg-zinc-900 p-4 rounded-xl border border-zinc-800">
+                <div class="text-amber-500 text-sm mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="text-zinc-300 text-xs italic">"Ambiente muito aconchegante na praça e entrega rápida em casa. Recomendo demais o Smash Duplo!"</p>
+                <span class="text-zinc-500 text-[10px] mt-2 block">— Marcos Vinicius (Google Local)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localização & Horários -->
+    <section class="bg-zinc-900 border-t border-zinc-800 py-12 px-4" id="localizacao">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+            <div>
+                <h3 class="text-2xl font-bold mb-4">Onde Estamos</h3>
+                <p class="text-zinc-300 mb-2 flex items-center gap-2"><i class="fa-solid fa-location-dot text-amber-500"></i> Praça Berthier Bento Alves, 421 - Freguesia do Ó, São Paulo - SP</p>
+                <p class="text-zinc-300 mb-4 flex items-center gap-2"><i class="fa-solid fa-clock text-amber-500"></i> Quarta a Domingo: das 17h00 às 22h45</p>
+                <a href="https://maps.google.com/?q=Praça+Berthier+Bento+Alves+421+Freguesia+do+O+Sao+Paulo" target="_blank" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold px-6 py-3 rounded-xl transition shadow-lg">
+                    <i class="fa-solid fa-map-location-dot text-lg"></i> Abrir no Google Maps
+                </a>
+            </div>
+            <div class="bg-zinc-950 p-6 rounded-2xl border border-zinc-800 text-center">
+                <h4 class="font-bold text-lg mb-2 text-amber-500">Senhora Burguer</h4>
+                <p class="text-zinc-400 text-sm mb-4">Peça o seu hambúrguer artesanal favorito com rapidez e praticidade direto pelo nosso atendimento online.</p>
+                <span class="text-xs text-zinc-500">© 2026 Senhora Burguer - Todos os direitos reservados</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrinho Flutuante / Modal -->
+    <div id="cart-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex justify-end">
+        <div class="bg-zinc-900 w-full max-w-md h-full p-6 flex flex-col justify-between border-l border-zinc-800">
+            <div>
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-bold text-amber-500"><i class="fa-solid fa-cart-shopping"></i> Seu Pedido</h3>
+                    <button onclick="toggleCart()" class="text-zinc-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div id="cart-items" class="space-y-3 max-h-[60vh] overflow-y-auto pr-2">
+                    <p class="text-zinc-500 text-sm text-center py-8">Seu carrinho está vazio.</p>
+                </div>
+            </div>
+            <div class="border-t border-zinc-800 pt-4">
+                <div class="flex justify-between text-lg font-bold mb-4">
+                    <span>Total:</span>
+                    <span id="cart-total" class="text-amber-500">R$ 0,00</span>
+                </div>
+                <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl flex items-center justify-center space-x-2 transition shadow-lg">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>Finalizar no WhatsApp</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+            updateCartUI();
+        }
+
+        function removeFromCart(name) {
+            cart = cart.filter(item => item.name !== name);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartBadge = document.getElementById('cart-badge');
+            const cartTotal = document.getElementById('cart-total');
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-zinc-500 text-sm text-center py-8">Seu carrinho está vazio.</p>';
+                cartBadge.classList.add('hidden');
+                cartTotal.innerText = 'R$ 0,00';
+                return;
+            }
+
+            cartBadge.classList.remove('hidden');
+            cartBadge.innerText = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+            let total = 0;
+            cartItemsContainer.innerHTML = '';
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                cartItemsContainer.innerHTML += `
+                    <div class="flex justify-between items-center bg-zinc-950 p-3 rounded-xl border border-zinc-800 text-sm">
+                        <div>
+                            <span class="font-bold block">${item.name}</span>
+                            <span class="text-zinc-400 text-xs">Qtd: ${item.quantity} x R$ ${item.price.toFixed(2)}</span>
+                        </div>
+                        <button onclick="removeFromCart('${item.name}')" class="text-red-500 hover:text-red-400 text-xs font-bold px-2 py-1"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                `;
+            });
+
+            cartTotal.innerText = `R$ ${total.toFixed(2)}`;
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert('Adicione itens ao carrinho antes de finalizar!');
+                return;
+            }
+
+            let message = "Olá! Vim pelo site e gostaria de fazer o seguinte pedido:%0A%0A";
+            let total = 0;
+            cart.forEach(item => {
+                let subtotal = item.price * item.quantity;
+                total += subtotal;
+                message += `- ${item.quantity}x ${item.name} (R$ ${subtotal.toFixed(2)})%0A`;
+            });
+            message += `%0A*Total:* R$ ${total.toFixed(2)}`;
+
+            window.open(`https://wa.me/551128934026?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
